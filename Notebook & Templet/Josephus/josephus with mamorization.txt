@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+int mamo[ 1000010 ], k;
+int josephus(int size);
+int main()
+{
+    int n, m, res;
+    while(scanf("%d %d", &n, &m) && (n || m))
+    {
+        k = m;
+        memset(mamo, -1, sizeof mamo);
+        for(int i = 1; i < n; i += 1000)
+        {
+            res = josephus( i );
+        }
+        printf("%d %d %d\n", n, m, josephus( n ));
+    }
+    return 0;
+}
+int josephus(int size)
+{
+    if(size == 1) return 1;
+
+    int &ret = mamo[ size ];
+
+    if(ret != -1) return ret;
+
+    return ret = ( ( josephus(size - 1) + k - 1) % size) + 1;
+}

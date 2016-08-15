@@ -1,0 +1,58 @@
+Subject: Re: counting trailing zeros of factorials in any base system
+
+Hi Martin,
+
+Thanks for writing to Dr. Math.  To count trailing zeros in any kind
+of number N in any base b, first you should factor your base (b) into
+products of prime powers.  Then you should check how many times each
+prime in b divides the number N.  Here is the part you are asking
+about:  For each of those primes, divide the number of times it
+divides N by the exponent of the prime in b, and round down to the
+nearest integer.  The smallest number you get (for all the primes) is
+the number of final zeros that N has in base b.
+
+Let's do an example.  Suppose we want 700! in base 120.  First we
+factorize 120:
+
+  120 = 2^3 * 3 * 5.
+
+Now we count how many times 2 goes into 700!.  By the techniques from
+
+  Trailing Zeros and Zero Factorial
+    http://mathforum.org/library/drmath/view/55844.html 
+
+and other places in our archives, which you surely already read, the
+number is
+
+  [700/2] + [700/4] + [700/8] + ... + [700/256] + [700/512]
+     = 350 + 175 + 87 + 43 + 21 + 10 + 5 + 2 + 1
+     = 694.
+
+Then we divide that by the exponent of 2 in 120, which is 3 (2^3
+divides 120),
+
+  694/3 = 231.33,
+
+which rounds down to 231.
+
+Now we do the same for 3 and 5.  Of course, since this is a factorial,
+we know the number of times 3 divides 700! will be at least as big as
+the number of times 5 divides 700! (although since we had to divide
+the 2s by 3, we still needed to check those).
+
+Then 5 goes into 700!
+
+  [700/5] + [700/25] + [700/125] + [700/625]
+     = 140 + 28 + 5 + 1 = 174.
+
+And 174 is smaller than 231, so there will be 174 trailing zeros in
+base 120.  Similarly, there will be 231 trailing zeros in base 8, and
+694 trailing zeros in base 2, and
+
+  [694/4] = 173
+
+trailing zeros in base 16 (hexadecimal).
+
+If you have any questions about this or need more help, please write
+back and show me what you have been able to do, and I will try to
+offer further suggestions.

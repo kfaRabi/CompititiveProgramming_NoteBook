@@ -1,0 +1,47 @@
+int DP(int nd, int isgard);
+
+vector <vi> graph;
+int par[ 100010 ], node, mamo[ 100010 ][ 2 ];
+
+int main()
+{
+    //#ifdef monkey
+        //freopen("input.txt", "r", stdin);
+        //freopen("output.txt", "w", stdout);
+    //#endif
+    input();
+
+    return 0;
+}
+void input()
+{
+    scanf("%d", &node);
+    graph.assign(node + 5, vi());
+    for(int u, v, i = 0; i < node - 1; i++)
+    {
+        scanf("%d %d", &u, &v);
+        graph[ u ].pb( v );
+        graph[ v ].pb( u );
+    }
+    CLR(mamo, -1);
+    CLR(par, -1);
+    printf("%d\n", min(DP(1, 0), DP(1, 1)));
+}
+int DP(int nd, int isgard)
+{
+    if(graph[ nd ].size() == 0) return 0;
+    int &ret = mamo[ nd ][ isgard ];
+    if(ret != -1) return ret;
+    int sum = 0;
+    for(int i = 0; i < graph[ nd ].size(); i++)
+    {
+        int v = graph[ nd ][ i ];
+        if(par[ nd ] != v) // Be careful about it
+        {
+            par[ v ] = nd;
+            if( !isgard ) sum += DP(v, 1);
+            else sum += min(DP(v, 0), DP(v, 1));
+        }
+    }
+    return ret = sum + isgard;
+}

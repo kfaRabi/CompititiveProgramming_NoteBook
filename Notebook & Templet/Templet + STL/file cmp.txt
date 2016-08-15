@@ -1,0 +1,1 @@
+cmd >> cd /d "jakhana asa exam("D:/new")" >> fc in.txt in2.txt

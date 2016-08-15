@@ -1,0 +1,32 @@
+1. strtok
+2. Remove duplikats from array =D
+
+****************************************
+****************************************
+1. /* strtok example */
+#include <stdio.h>
+#include <string.h>
+
+int main ()
+{
+  char str[] ="- This, a sample string.";
+  char * pch;
+  printf ("Splitting string \"%s\" into tokens:\n",str);
+  pch = strtok (str," ,.-");
+  while (pch != NULL)
+  {
+    printf ("%s\n",pch);
+    pch = strtok (NULL, " ,.-");
+  }
+  return 0;
+}
+****************************************
+****************************************
+2. Remove duplikats from array =D
+
+vi::iterator last = unique(result.begin(), result.end()); // to remove duplicates
+    for (vi::iterator i = result.begin(); i != last; i++) // output: 2 and 5
+        printf("%d\n", *i);
+// vi is vector
+****************************************
+****************************************
