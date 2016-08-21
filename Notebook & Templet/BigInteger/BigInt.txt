@@ -1,3 +1,4 @@
+// http://lightoj.com/article_show.php?article=1004
 // header files
 
 #include <cstdio>
